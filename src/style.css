@@ -1,0 +1,41 @@
+.task-form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.task-input {
+  border-radius: 35px;
+  width: 50%;
+}
+
+.task-submit {
+  width: 70px;
+  height: 70px;
+  margin-left: -70px;
+  background-color: aquamarine;
+  border-radius: 35px;
+}
+
+.task-board {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  align-items: flex-start;
+}
+
+.task {
+  align-self: flex-start;
+  margin: 25px;
+  padding: 15px;
+  border: 0.1rem black dashed;
+  border-radius: 20px;
+  background-color: rgb(250, 247, 72);
+
+  width: 150px;
+  min-height: 100px;
+  max-height: fit-content;
+  overflow-wrap: break-word;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
