@@ -1,3 +1,8 @@
+body {
+  height: 100%;
+  background: #202124;
+}
+
 .task-form {
   display: flex;
   justify-content: center;
@@ -7,6 +12,8 @@
 .task-input {
   border-radius: 35px;
   width: 50%;
+  padding-left: 50px;
+  font-size: larger;
 }
 
 .task-submit {
@@ -17,14 +24,20 @@
   border-radius: 35px;
 }
 
-.task-board {
+.tasks {
   display: flex;
+  flex-grow: 1;
   flex-direction: row;
   flex-flow: wrap;
   align-items: flex-start;
 }
 
+.done-tasks {
+  margin-top: 150px;
+}
+
 .task {
+  position: relative;
   align-self: flex-start;
   margin: 25px;
   padding: 15px;
@@ -32,10 +45,30 @@
   border-radius: 20px;
   background-color: rgb(250, 247, 72);
 
-  width: 150px;
+  width: 120px;
   min-height: 100px;
   max-height: fit-content;
   overflow-wrap: break-word;
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.done-task {
+  background-color: aquamarine;
+}
+
+.task-buttons {
+  background-color: transparent;
+  border: none;
+  font-size: x-large;
+
+  display: flex;
+  flex-direction: row-reverse;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.task-button {
+  margin-left: 70px;
 }
