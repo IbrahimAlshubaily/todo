@@ -29,11 +29,16 @@ function App() {
 
   const submitTask = (task: string) => setTodoTasks([...todoTasks, task])
 
+  const updateTask = (updateIndex: number, newValue: string) => {
+    todoTasks[updateIndex] = newValue;
+    setTodoTasks(todoTasks);
+  }
+
   const removeTask = (removeIdx: number, isDone: boolean) => {
     if (isDone) {
-      setDoneTasks(doneTasks.filter((_: string, idx: number) => idx !== removeIdx));
+      setDoneTasks([...doneTasks.slice(0, removeIdx), ...doneTasks.slice(removeIdx+1)]);
     } else {
-      setTodoTasks(todoTasks.filter((_: string, idx: number) => idx !== removeIdx));
+      setTodoTasks([...todoTasks.slice(0, removeIdx), ...todoTasks.slice(removeIdx+1)]);
     }
   }
 
@@ -45,7 +50,7 @@ function App() {
   return (
     <div className="App">
       <Form submitTask={submitTask}></Form>
-      <Tasks todoTasks={todoTasks} doneTasks={doneTasks} removeTask={removeTask} completeTask={completeTaks} />
+      <Tasks todoTasks={todoTasks} doneTasks={doneTasks} updateTask={updateTask} removeTask={removeTask} completeTask={completeTaks} />
     </div>
   );
 }
