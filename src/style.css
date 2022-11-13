@@ -18,8 +18,12 @@ body {
   background-color: transparent;
   border: none;
   resize: none;
-  overflow: hidden;
   height: auto;
+  overflow: scroll;
+
+  display: block;
+  overflow: hidden;
+  resize: none;
 }
 
 .task-edit-input:focus {

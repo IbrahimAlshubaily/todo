@@ -35,6 +35,7 @@ export default function Tasks(props: TasksProps): JSX.Element {
 
 function Task(props: TaskProps) {
 
+
     const className = props.isDone ? "done-task" : "todo-task";
     return (
         <div className={"task " + className}>
@@ -42,8 +43,10 @@ function Task(props: TaskProps) {
                 className='task-edit-input'
                 defaultValue={props.value}
                 readOnly={props.isDone}
-                onChange={e => {
-                    props.updateTask(props.idx, e.target.value)
+                style={{ height: props.value.length + 25 }}
+                onInput={e => {
+                    props.updateTask(props.idx, e.currentTarget.value)
+                    e.currentTarget.style.height = e.currentTarget.value.length + 25 + "px"
                 }} />
 
             <div className='task-buttons'>

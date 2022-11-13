@@ -17,10 +17,11 @@ function App() {
   const [doneTasks, setDoneTasks] = useState<string[]>(() => fetchTasks("done-tasks"));
 
 
+  const save = (key: string, value: string[]) => {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
   useEffect(() => {
-    localStorage.setItem("todo-tasks", JSON.stringify(todoTasks))
-    console.log("save todo")
-    console.log(todoTasks)
+    save("todo-tasks", todoTasks);
   }, [todoTasks])
 
 
@@ -34,7 +35,6 @@ function App() {
   const updateTask = (updateIndex: number, newValue: string) => {
     todoTasks[updateIndex] = newValue;
     localStorage.setItem("todo-tasks", JSON.stringify(todoTasks))
-
   }
 
   const removeTask = (removeIdx: number, isDone: boolean) => {
