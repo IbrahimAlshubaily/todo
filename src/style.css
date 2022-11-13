@@ -14,12 +14,15 @@ body {
   padding-left: 50px;
   font-size: larger;
 }
-.task-edit-input{
+.task-edit-input {
   background-color: transparent;
   border: none;
+  resize: none;
+  overflow: hidden;
+  height: auto;
 }
 
-.task-edit-input:focus{
+.task-edit-input:focus {
   outline: none;
 }
 

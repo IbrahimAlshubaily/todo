@@ -1,7 +1,5 @@
-import React from 'react';
+import React, { } from 'react';
 import "./style.css";
-
-//Edit feature
 
 interface TasksProps {
     todoTasks: string[]
@@ -22,7 +20,6 @@ interface TaskProps {
 }
 
 export default function Tasks(props: TasksProps): JSX.Element {
-
     const createTask = (value: string, idx: number, isDone: boolean) => {
         return <Task key={idx.toString() + value} isDone={isDone} value={value} idx={idx}
             updateTask={props.updateTask} removeTask={props.removeTask} completeTask={props.completeTask} />
@@ -41,18 +38,18 @@ function Task(props: TaskProps) {
     const className = props.isDone ? "done-task" : "todo-task";
     return (
         <div className={"task " + className}>
-            <input
+            <textarea
                 className='task-edit-input'
                 defaultValue={props.value}
                 readOnly={props.isDone}
-                onChange={e => props.updateTask(props.idx, e.target.value)} />
+                onChange={e => {
+                    props.updateTask(props.idx, e.target.value)
+                }} />
 
             <div className='task-buttons'>
 
                 <button className='task-button'
                     onClick={() => {
-
-
                         props.removeTask(props.idx, props.isDone);
                     }}>
                     🗑️

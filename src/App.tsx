@@ -19,6 +19,8 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("todo-tasks", JSON.stringify(todoTasks))
+    console.log("save todo")
+    console.log(todoTasks)
   }, [todoTasks])
 
 
@@ -31,14 +33,20 @@ function App() {
 
   const updateTask = (updateIndex: number, newValue: string) => {
     todoTasks[updateIndex] = newValue;
-    setTodoTasks(todoTasks);
+    localStorage.setItem("todo-tasks", JSON.stringify(todoTasks))
+
   }
 
   const removeTask = (removeIdx: number, isDone: boolean) => {
     if (isDone) {
-      setDoneTasks([...doneTasks.slice(0, removeIdx), ...doneTasks.slice(removeIdx+1)]);
+      setDoneTasks([...doneTasks.slice(0, removeIdx), ...doneTasks.slice(removeIdx + 1)]);
     } else {
-      setTodoTasks([...todoTasks.slice(0, removeIdx), ...todoTasks.slice(removeIdx+1)]);
+      console.log(todoTasks.length)
+      setTodoTasks([...todoTasks.slice(0, removeIdx), ...todoTasks.slice(removeIdx + 1)]);
+      console.log()
+      console.log(todoTasks.length)
+
+
     }
   }
 
